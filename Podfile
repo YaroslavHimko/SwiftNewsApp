@@ -6,5 +6,7 @@ target 'SwiftNewsApp' do
   use_frameworks!
 
   pod 'Alamofire'
-
+  pod 'Moya/RxSwift'
+  pod 'SDWebImage'
+  
 end

@@ -6,3 +6,18 @@
 //
 
 import Foundation
+import RxSwift
+
+class NewsViewModel {
+    
+    func fetchNews() -> Single<ResponseModel> {
+        return .create { observer in
+            NetworkManager.shared.getNews()
+                .subscribe(onSuccess: { newsResponse in
+                    observer(.success(newsResponse))
+                }, onError: { error in
+                    observer(.error(error))
+                })
+        }
+    }
+}
